@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sanchita Bhageria | Portfolio</title>
+
+<style>
+
+/* ==============================
+   GLOBAL STYLING
+============================== */
+
+:root {
+    --background: #f8f9f6;
+    --white: #ffffff;
+    --text: #202923;
+    --muted: #727c75;
+    --green: #527b62;
+    --light-green: #e9f0e9;
+    --border: #e3e8e2;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+.container {
+    width: 86%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ==============================
+   NAVIGATION BAR
+============================== */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(248,249,246,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 750;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--green);
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+}
+
+.nav-links a {
+    font-size: 13px;
+    color: var(--muted);
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--green);
+}
+
+/* ==============================
+   HERO SECTION
+============================== */
+
+.hero {
+    min-height: 570px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.hero-content {
+    max-width: 760px;
+    padding: 90px 0;
+}
+
+.tag {
+    display: inline-block;
+    background: var(--light-green);
+    color: var(--green);
+    padding: 7px 14px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 8vw, 76px);
+    line-height: 1.12;
+    letter-spacing: -3px;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: var(--green);
+}
+
+.hero h2 {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--muted);
+    margin-bottom: 18px;
+}
+
+.hero p {
+    max-width: 620px;
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 28px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.primary-btn {
+    display: inline-block;
+    background: var(--green);
+    color: white;
+    padding: 12px 22px;
+    border-radius: 6px;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.primary-btn:hover {
+    background: #385c46;
+    transform: translateY(-3px);
+}
+
+.secondary-btn {
+    display: inline-block;
+    border: 1px solid var(--border);
+    padding: 12px 22px;
+    border-radius: 6px;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.secondary-btn:hover {
+    border-color: var(--green);
+    color: var(--green);
+}
+
+/* ==============================
+   COMMON SECTIONS
+============================== */
+
+section {
+    padding: 85px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.section-label {
+    color: var(--green);
+    font-family: monospace;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.section-heading {
+    font-size: 35px;
+    letter-spacing: -1px;
+    margin-bottom: 35px;
+}
+
+.section-heading span {
+    color: var(--green);
+}
+
+/* ==============================
+   ABOUT SECTION
+============================== */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 55px;
+    align-items: start;
+}
+
+.about-text p {
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 18px;
+}
+
+.code-box {
+    background: #202923;
+    color: #dce9df;
+    padding: 25px;
+    border-radius: 10px;
+    font-family: monospace;
+    font-size: 13px;
+    line-height: 2;
+    overflow-wrap: anywhere;
+}
+
+.code-box .keyword {
+    color: #a7cba9;
+}
+
+.code-box .string {
+    color: #e5c995;
+}
+
+.details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.detail {
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.detail small {
+    color: var(--muted);
+    display: block;
+    font-size: 11px;
+}
+
+.detail strong {
+    font-size: 13px;
+}
+
+/* ==============================
+   PROJECTS SECTION
+============================== */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.project-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 27px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--green);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.project-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.project-number {
+    color: var(--green);
+    font-family: monospace;
+    font-size: 12px;
+}
+
+.project-status {
+    font-size: 10px;
+    background: var(--light-green);
+    color: var(--green);
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.project-card h3 {
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tech-stack span {
+    background: #f0f3ef;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    color: #526457;
+}
+
+.project-link {
+    display: inline-block;
+    color: var(--green);
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 22px;
+}
+
+.project-link:hover {
+    text-decoration: underline;
+}
+
+/* ==============================
+   SKILLS SECTION
+============================== */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.skill-box {
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 25px;
+    border-radius: 9px;
+}
+
+.skill-box h3 {
+    color: var(--green);
+    font-size: 16px;
+    margin-bottom: 18px;
+}
+
+.skill-item {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+}
+
+.skill-item:last-child {
+    border: none;
+}
+
+.skill-item small {
+    color: var(--muted);
+    display: block;
+}
+
+/* ==============================
+   EDUCATION AND RESUME
+============================== */
+
+.resume-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+}
+
+.resume-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 25px;
+}
+
+.resume-card h3 {
+    margin-bottom: 22px;
+    font-size: 19px;
+}
+
+.timeline-item {
+    border-left: 2px solid var(--green);
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+.timeline-item small {
+    color: var(--green);
+    font-size: 12px;
+}
+
+.timeline-item h4 {
+    font-size: 15px;
+    margin: 5px 0;
+}
+
+.timeline-item p {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* ==============================
+   CONTACT SECTION
+============================== */
+
+.contact-section {
+    text-align: center;
+}
+
+.contact-section .section-heading {
+    margin-bottom: 15px;
+}
+
+.contact-section p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.contact-links a {
+    border: 1px solid var(--border);
+    background: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.contact-links a:hover {
+    color: var(--green);
+    border-color: var(--green);
+    transform: translateY(-3px);
+}
+
+/* ==============================
+   FOOTER
+============================== */
+
+footer {
+    padding: 25px 0;
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+/* ==============================
+   SCROLL ANIMATIONS
+============================== */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Accessibility: reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Keyboard focus */
+
+a:focus-visible {
+    outline: 2px solid var(--green);
+    outline-offset: 4px;
+}
+
+/* ==============================
+   MOBILE RESPONSIVENESS
+============================== */
+
+@media(max-width: 750px) {
+
+    .container {
+        width: 90%;
+    }
+
+    .nav-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        gap: 13px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    .hero {
+        min-height: 500px;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .about-grid,
+    .projects-grid,
+    .skills-grid,
+    .resume-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-grid {
+        gap: 30px;
+    }
+
+    .section-heading {
+        font-size: 29px;
+    }
+
+    section {
+        padding: 65px 0;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ==============================
+     NAVIGATION
+============================== -->
+
+<nav>
+<div class="container nav-content">
+
+    <div class="logo">
+        sanchita<span>.</span>
+    </div>
+
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+</div>
+</nav>
+
+
+<!-- ==============================
+     HOME / HERO
+============================== -->
+
+<header class="hero" id="home">
+<div class="container">
+
+    <div class="hero-content reveal">
+
+        <div class="tag">
+            B.Tech Information Technology · VIT Vellore
+        </div>
+
+        <h1>
+            Hi, I'm <span>Sanchita</span><br>
+            Bhageria.
+        </h1>
+
+        <h2>
+            IT Student · Aspiring Software Developer
+        </h2>
+
+        <p>
+            I am an enthusiastic technology student who enjoys
+            exploring programming, learning new concepts and
+            turning creative ideas into practical solutions.
+
+            Currently building my foundation in programming
+            and discovering the world of software development.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#projects" class="primary-btn">
+                Explore My Work →
+            </a>
+
+            <a href="#contact" class="secondary-btn">
+                Get In Touch
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+</header>
+
+
+<!-- ==============================
+     ABOUT ME
+============================== -->
+
+<section id="about">
+<div class="container reveal">
+
+    <div class="section-label">
+        01 / INTRODUCTION
+    </div>
+
+    <h2 class="section-heading">
+        About <span>Me</span>
+    </h2>
+
+    <div class="about-grid">
+
+        <div class="about-text">
+
+            <p>
+                I am Sanchita Bhageria, currently pursuing
+                Information Technology at Vellore Institute
+                of Technology (VIT), Vellore.
+            </p>
+
+            <p>
+                I am interested in understanding how technology
+                works and how programming can be used to solve
+                real-world problems.
+            </p>
+
+            <p>
+                My learning journey includes programming,
+                logical thinking, problem-solving and exploring
+                different areas of computer science.
+            </p>
+
+            <p>
+                I believe that every project is an opportunity
+                to learn something new. My goal is to grow as
+                a developer and transform creative ideas into
+                useful digital experiences.
+            </p>
+
+        </div>
+
+        <div>
+
+            <div class="code-box">
+
+                <span class="keyword">student</span> = {<br>
+
+                &nbsp;&nbsp;<span class="string">"name"</span>:
+                "Sanchita Bhageria",<br>
+
+                &nbsp;&nbsp;<span class="string">"course"</span>:
+                "B.Tech IT",<br>
+
+                &nbsp;&nbsp;<span class="string">"college"</span>:
+                "VIT Vellore",<br>
+
+                &nbsp;&nbsp;<span class="string">"interest"</span>:
+                "Software Development",<br>
+
+                &nbsp;&nbsp;<span class="string">"goal"</span>:
+                "Keep Learning & Building"<br>
+
+                }
+
+            </div>
+
+            <div class="details">
+
+                <div class="detail">
+                    <small>Education</small>
+                    <strong>B.Tech IT</strong>
+                </div>
+
+                <div class="detail">
+                    <small>College</small>
+                    <strong>VIT Vellore</strong>
+                </div>
+
+                <div class="detail">
+                    <small>Programming</small>
+                    <strong>Python</strong>
+                </div>
+
+                <div class="detail">
+                    <small>Interest</small>
+                    <strong>Technology</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- ==============================
+     PROJECTS
+============================== -->
+
+<section id="projects">
+<div class="container reveal">
+
+    <div class="section-label">
+        02 / MY WORK
+    </div>
+
+    <h2 class="section-heading">
+        Featured <span>Projects</span>
+    </h2>
+
+    <p style="color:#727c75; margin-bottom:30px; font-size:14px;">
+        A collection of projects that reflect my interest
+        in software development, problem-solving and technology.
+    </p>
+
+    <div class="projects-grid">
+
+        <!-- PROJECT 1 -->
+
+        <div class="project-card">
+
+            <div class="project-top">
+
+                <span class="project-number">
+                    PROJECT 01
+                </span>
+
+                <span class="project-status">
+                    ✓ Completed
+                </span>
+
+            </div>
+
+            <h3>Watch Party 2.0</h3>
+
+            <p>
+                A real-time collaborative watch-party application
+                that allows multiple users to watch videos together
+                in synchronization. Features include synchronized
+                playback, live chat, emoji reactions, shared playlists,
+                group polls, movie discovery and host transfer.
+
+            </p>
+
+            <div class="tech-stack">
+
+                <span>Node.js</span>
+                <span>Express</span>
+                <span>Socket.IO</span>
+                <span>JavaScript</span>
+
+            </div>
+
+            <a
+              href="https://github.com/SanchitaBhageria/watch-party-2.0"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="project-link">
+
+              View Repository on GitHub ↗
+
+            </a>
+
+        </div>
+
+
+        <!-- PROJECT 2 -->
+
+        <div class="project-card">
+
+            <div class="project-top">
+
+                <span class="project-number">
+                    PROJECT 02
+                </span>
+
+                <span class="project-status">
+                    ✓ Completed
+                </span>
+
+            </div>
+
+            <h3>ProxyProof – Bluetooth Attendance</h3>
+
+            <p>
+                An attendance management prototype designed
+                to make proxy attendance more difficult through
+                proximity-based verification. It uses rotating
+                security tokens, device verification and signal
+                strength checks. Its browser demonstration simulates
+                BLE-style communication using multiple tabs,
+                with organiser and student dashboards and CSV export.
+
+            </p>
+
+            <div class="tech-stack">
+
+                <span>JavaScript</span>
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>BroadcastChannel</span>
+                <span>HMAC-SHA256</span>
+
+            </div>
+
+            <a
+              href="https://github.com/SanchitaBhageria/Bluetooth-proxy-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="project-link">
+
+              View Repository on GitHub ↗
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- ==============================
+     TECHNICAL SKILLS
+============================== -->
+
+<section id="skills">
+<div class="container reveal">
+
+    <div class="section-label">
+        03 / EXPERTISE
+    </div>
+
+    <h2 class="section-heading">
+        Technical <span>Skills</span>
+    </h2>
+
+    <div class="skills-grid">
+
+        <div class="skill-box">
+
+            <h3>Programming</h3>
+
+            <div class="skill-item">
+                Python
+                <small>Programming fundamentals</small>
+            </div>
+
+            <div class="skill-item">
+                JavaScript
+                <small>Used in projects</small>
+            </div>
+
+        </div>
+
+
+        <div class="skill-box">
+
+            <h3>Web Development</h3>
+
+            <div class="skill-item">
+                HTML
+                <small>Web structure</small>
+            </div>
+
+            <div class="skill-item">
+                CSS
+                <small>Web styling</small>
+            </div>
+
+            <div class="skill-item">
+                Node.js & Express
+                <small>Used in Watch Party 2.0</small>
+            </div>
+
+            <div class="skill-item">
+                Socket.IO
+                <small>Real-time communication</small>
+            </div>
+
+        </div>
+
+
+        <div class="skill-box">
+
+            <h3>Core Skills</h3>
+
+            <div class="skill-item">
+                Problem Solving
+            </div>
+
+            <div class="skill-item">
+                Logical Thinking
+            </div>
+
+            <div class="skill-item">
+                Creative Thinking
+            </div>
+
+            <div class="skill-item">
+                Teamwork
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- ==============================
+     EDUCATION & RESUME
+============================== -->
+
+<section id="resume">
+<div class="container reveal">
+
+    <div class="section-label">
+        04 / BACKGROUND
+    </div>
+
+    <h2 class="section-heading">
+        Education & <span>Resume</span>
+    </h2>
+
+    <div class="resume-grid">
+
+        <div class="resume-card">
+
+            <h3>Education</h3>
+
+            <div class="timeline-item">
+
+                <small>Present</small>
+
+                <h4>B.Tech – Information Technology</h4>
+
+                <p>
+                    Vellore Institute of Technology,
+                    Vellore, India.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="resume-card">
+
+            <h3>Learning Journey</h3>
+
+            <div class="timeline-item">
+
+                <small>Currently</small>
+
+                <h4>Programming Fundamentals</h4>
+
+                <p>
+                    Building a foundation in Python,
+                    programming concepts and problem-solving.
+                </p>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <small>Project Experience</small>
+
+                <h4>Software Project Development</h4>
+
+                <p>
+                    Worked on collaborative web applications
+                    and a browser-based attendance prototype.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:30px;">
+
+        <a href="resume.pdf"
+           class="primary-btn"
+           download>
+
+            Download My Resume ↓
+
+        </a>
+
+        <p style="font-size:11px; color:#727c75; margin-top:12px;">
+
+            Add your actual resume PDF to the portfolio folder.
+
+        </p>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- ==============================
+     CONTACT
+============================== -->
+
+<section id="contact">
+<div class="container reveal contact-section">
+
+    <div class="section-label">
+        05 / GET IN TOUCH
+    </div>
+
+    <h2 class="section-heading">
+        Let's <span>Connect.</span>
+    </h2>
+
+    <p>
+        I am always open to learning new things,
+        exploring opportunities and connecting with
+        people who share an interest in technology.
+    </p>
+
+    <div class="contact-links">
+
+        <!-- GMAIL -->
+
+        <a href="mailto:Sanchitaagarwal2023@gmail.com">
+
+            ✉ Email Me
+
+        </a>
+
+
+        <!-- GITHUB -->
+
+        <a
+          href="https://github.com/SanchitaBhageria"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          GitHub ↗
+
+        </a>
+
+
+        <!-- LINKEDIN -->
+
+        <a
+          href="https://www.linkedin.com/in/sanchita-bhageria-23657b432/"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          LinkedIn ↗
+
+        </a>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- ==============================
+     FOOTER
+============================== -->
+
+<footer>
+
+<div class="container">
+
+    © 2026 Sanchita Bhageria.
+    Designed & developed with curiosity.
+
+</div>
+
+</footer>
+
+
+<!-- ==============================
+     JAVASCRIPT ANIMATIONS
+============================== -->
+
+<script>
+
+const observer = new IntersectionObserver(
+
+    (entries) => {
+
+        entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("visible");
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold: 0.12
+    }
+
+);
+
+document.querySelectorAll(".reveal").forEach((element) => {
+
+    observer.observe(element);
+
+});
+
+</script>
+
+</body>
+</html>
